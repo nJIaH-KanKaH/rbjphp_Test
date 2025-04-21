@@ -3,9 +3,9 @@
 # Wait for the database to be ready before running migrations
 # You might need to adjust the host/credentials/port according to your database
 until nc -z -v -w30 db 3306; do
-  echo 'Waiting for the database connection...'
-  # Wait for 5 seconds before checking again
-  sleep 5
+    echo 'Waiting for the database connection...'
+    # Wait for 5 seconds before checking again
+    sleep 5
 done
 
 composer install
