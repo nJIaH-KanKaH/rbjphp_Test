@@ -32,3 +32,14 @@ After the project has started, open your web browser and go to:
 http://localhost:8080/
 
 This will allow you to view the application.
+
+Changes by last commit / updates
+1.Added a new entity Category with its repository, form, and controller.
+2.Updated the Book entity to include a relationship with Category.
+3.Created a migration for the new Category entity.
+4.Updated the fixtures to include sample categories on app load.
+5.Added html templates for CRUD operations on Category.
+6.Updated the base template to include links to the new Category pages.
+7.Updated the Book templates to include edit for Category.
+8.Updated the Book Entity (changed type of Book column 'description' for support of long text inputs)
+--- Approximate time spent: 3 hours ---
