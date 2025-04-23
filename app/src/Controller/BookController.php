@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,18 +17,32 @@ use Symfony\Component\Routing\Attribute\Route;
 final class BookController extends AbstractController
 {
     #[Route(name: 'app_book_index', methods: ['GET'])]
-    public function index(BookRepository $bookRepository, PaginatorInterface $paginator, Request $request): Response
-    {
-        $query = $bookRepository->createQueryBuilder('b')->getQuery();
+    public function index(
+        Request $request, 
+        BookRepository $bookRepository,
+        CategoryRepository $categoryRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $categoryId = $request->query->get('category');
+        $category = null;
+        
+        if ($categoryId) {
+            $category = $categoryRepository->find($categoryId);
+        }
 
+        $query = $bookRepository->findByCategory($category);
+        
         $pagination = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
-            10
+            10,
+            ['pageParameterName' => 'page']
         );
 
         return $this->render('book/index.html.twig', [
             'pagination' => $pagination,
+            'categories' => $categoryRepository->findAll(),
+            'selected_category' => $category,
         ]);
     }
 
