@@ -45,5 +45,5 @@ Changes by last commit / updates(90e7147)
 --- Approximate time spent: 3 hours ---
   
 Changes by commit (6672bb7)  
-1. Added select filter by category to books page.
+1. Added select filter by category to books page.  
 --- Approximate time spent: 1 hours ---
