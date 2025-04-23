@@ -5,8 +5,29 @@
 {% block body %}
     <h1>Book index</h1>
 
-    <a href="{{ path('app_book_new') }}" class="btn btn-secondary float-end">Create new</a>
-
+    <div class="row mb-3">
+        <div class="col">
+            <form method="get" class="form-inline">
+                <div class="input-group">
+                    <select name="category" class="form-select">
+                        <option value="">All Categories</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if selected_category and selected_category.id == category.id %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-secondary">Filter</button>
+                    {% if selected_category %}
+                        <a href="{{ path('app_book_index') }}" class="btn btn-light">Clear</a>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+        <div class="col text-end">
+            <a href="{{ path('app_book_new') }}" class="btn btn-secondary">Create new</a>
+        </div>
+    </div>
     <table class="table table-striped mt-3">
         <thead>
             <tr>

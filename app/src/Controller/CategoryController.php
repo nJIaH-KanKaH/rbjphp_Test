@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Book;
+
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
@@ -17,9 +17,9 @@ use Symfony\Component\Routing\Attribute\Route;
 final class CategoryController extends AbstractController
 {
     #[Route(name: 'app_category_index', methods: ['GET'])]
-    public function index(CategoryRepository $bookRepository, PaginatorInterface $paginator, Request $request): Response
+    public function index(CategoryRepository $categoryRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $query = $bookRepository->createQueryBuilder('b')->getQuery();
+        $query = $categoryRepository->createQueryBuilder('c')->getQuery();
 
         $pagination = $paginator->paginate(
             $query,

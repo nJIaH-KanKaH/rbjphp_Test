@@ -33,7 +33,9 @@ http://localhost:8080/
 
 This will allow you to view the application.
 
-Changes by last commit / updates  
+
+Changes by last commit / updates(90e7147)   
+
 1.Added a new entity Category with its repository, form, and controller.  
 2.Updated the Book entity to include a relationship with Category.  
 3.Created a migration for the new Category entity.  
@@ -43,3 +45,7 @@ Changes by last commit / updates
 7.Updated the Book templates to include edit for Category.  
 8.Updated the Book Entity (changed type of Book column 'description' for support of long text inputs)  
 --- Approximate time spent: 3 hours ---
+
+Changes by commit (6672bb7)  
+1. Added select filter by category to books page.  
+--- Approximate time spent: 1 hours ---
