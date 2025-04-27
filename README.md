@@ -47,5 +47,5 @@ Changes by last commit / updates(90e7147)
 --- Approximate time spent: 3 hours ---
 
 Changes by commit (6672bb7)  
-1. Added select filter by category to books page.  
+1. Added select filter by category to books page.(firstly i thought of basic inner join, but it looked like, if i click all categories in select and then click filter, i will not show the books without category, so i tried left join,to see if i may at least change books without category)  
 --- Approximate time spent: 1 hours ---
